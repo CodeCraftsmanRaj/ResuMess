@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ResuMess UI Playground</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>ResuMess UI Playground</h1>
+      <p>Manual browser testing for LaTeX render flow.</p>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <h2>Render Input</h2>
+        <label>API Base URL
+          <input id="apiBase" value="http://localhost:8000" />
+        </label>
+
+        <label>User ID
+          <input id="userId" value="demo-user" />
+        </label>
+
+        <label>Document Type
+          <select id="documentType">
+            <option value="resume">resume</option>
+            <option value="cv">cv</option>
+            <option value="sop">sop</option>
+          </select>
+        </label>
+
+        <label>Template ID
+          <input id="templateId" value="jakes" />
+        </label>
+
+        <label>LaTeX Body
+          <textarea id="latexSource" rows="12">\section*{Summary}
+Built scalable backend services and shipped user-focused products.
+
+\section*{Skills}
+Python, FastAPI, React, PostgreSQL, Docker</textarea>
+        </label>
+
+        <div class="actions">
+          <button id="generateBtn">Generate</button>
+          <button id="mockSuccessBtn" class="secondary">Mock Success</button>
+          <button id="mockFailBtn" class="secondary danger">Mock Failure</button>
+        </div>
+
+        <p>Status: <strong id="statusText">idle</strong></p>
+      </section>
+
+      <section class="panel">
+        <h2>Preview & Diagnostics</h2>
+
+        <div class="downloads">
+          <a id="downloadPdf" class="disabled" href="#" target="_blank">Download PDF</a>
+          <a id="downloadTex" class="disabled" href="#" target="_blank">Download TEX</a>
+          <a id="downloadLog" class="disabled" href="#" target="_blank">Download LOG</a>
+        </div>
+
+        <iframe id="previewFrame" title="PDF Preview"></iframe>
+
+        <h3>Diagnostics</h3>
+        <pre id="diagnostics">No diagnostics yet.</pre>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
