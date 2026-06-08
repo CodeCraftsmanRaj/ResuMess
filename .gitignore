@@ -17,5 +17,6 @@ dist/
 
 .DS_Store
 
-# Local scratch entrypoint
+# Local scratch and tool-managed files
 main.py
+.python-version
